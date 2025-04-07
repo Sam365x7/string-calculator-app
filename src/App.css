@@ -1,42 +1,73 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f1f5f9;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  background: white;
+  max-width: 500px;
+  width: 100%;
   padding: 2rem;
+  margin: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Header */
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #111827;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Input */
+input[type="text"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+input[type="text"]:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  outline: none;
 }
 
-.card {
-  padding: 2em;
+/* Button */
+button {
+  background-color: #6366f1;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.read-the-docs {
-  color: #888;
+button:hover {
+  background-color: #4f46e5;
+}
+
+/* Result text */
+.result {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  color: #111827;
+  font-weight: 600;
 }
