@@ -1,10 +1,24 @@
 export function add(numbers) {
   if (!numbers) return 0;
 
-  const parts = numbers.split(/,|\n/);
-  const parsedNumbers = parts
-  .map((num) => parseInt(num, 10))
-  .filter((num) => !isNaN(num));
+  let delimiter = /,|\n/;
+  let numberString = numbers;
 
-return parsedNumbers.reduce((sum, num) => sum + num, 0);
+  if (numbers.startsWith("//")) {
+    const delimiterEndIndex = numbers.indexOf("\n");
+    const rawDelimiter = numbers.substring(2, delimiterEndIndex);
+
+    const escapedDelimiter = rawDelimiter.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+    delimiter = new RegExp(escapedDelimiter);
+    numberString = numbers.substring(delimiterEndIndex + 1);
+  }
+
+  const parts = numberString.split(delimiter);
+
+  const parsedNumbers = parts
+    .map((n) => parseInt(n, 10))
+    .filter((n) => !isNaN(n));
+ 
+  return parsedNumbers.reduce((sum, n) => sum + n, 0);
 }
