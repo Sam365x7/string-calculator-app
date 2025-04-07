@@ -14,8 +14,10 @@ function App() {
   return (
     <>
       <h1>String Calculator</h1>
-      <input
+      <textarea
         type="text"
+        rows={4}
+        cols={40}
         placeholder="Enter numbers like 1,2"
         value={input}
         onChange={(e) => setInput(e.target.value)}

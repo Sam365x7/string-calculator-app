@@ -31,21 +31,12 @@ h1 {
   color: #111827;
 }
 
-/* Input */
-input[type="text"] {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #cbd5e1;
+textarea {
+  padding: 1rem;
   border-radius: 8px;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
-}
-
-input[type="text"]:focus {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-  outline: none;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
 }
 
 /* Button */
@@ -58,6 +49,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 1.2rem;
 }
 
 button:hover {
