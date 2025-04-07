@@ -23,4 +23,7 @@ describe("String Calculator", () => {
     expect(add("1\n2,3")).toBe(6);
     expect(add("10,20\n30\n40,50")).toBe(150);
   });
+  test("ignores invalid entries and sums only valid numbers", () => {
+    expect(add("1,483rf\n23,")).toBe(507);
+  });
 });
