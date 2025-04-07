@@ -9,6 +9,14 @@ describe("String Calculator", () => {
     expect(add("1,4")).toBe(5);
   });
 
+  test("ignores non-numeric input", () => {
+    expect(add("1,abc,3")).toBe(4);
+  });
+
+  test("handles trailing commas", () => {
+    expect(add("1,2,")).toBe(3);
+  });
+
   test("adds multiple numbers", () => {
     expect(add("1,2,3,4,5")).toBe(15);
     expect(add("10,20,30")).toBe(60);
