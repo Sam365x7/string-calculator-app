@@ -35,4 +35,12 @@ describe("String Calculator", () => {
   test("supports custom multi-char delimiter like //***\n1***2", () => {
     expect(add("//***\n1***2")).toBe(3);
   });
+
+  test("throw error with one negative number", () => {
+    expect(() => add("1,-2,3")).toThrow("negative numbers not allowed -2");
+  });
+  
+  test("throw error with multiple negatives", () => {
+    expect(() => add("-1,2,-3")).toThrowError("negative numbers not allowed -1,-3");
+  });
 });
