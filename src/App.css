@@ -63,3 +63,10 @@ button:hover {
   color: #111827;
   font-weight: 600;
 }
+
+.error {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  color: red;
+  font-weight: 600;
+}

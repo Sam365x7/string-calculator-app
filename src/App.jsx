@@ -5,10 +5,17 @@ import './App.css'
 function App() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState(null);
+  const [error, setError] = useState("");
 
   const handleCalculate = () => {
-    const sum = add(input);
-    setResult(sum);
+    try {
+      const sum = add(input);
+      setResult(sum);
+      setError(""); 
+    } catch (err) {
+      setResult(null); 
+      setError(err.message); 
+    }
   };
 
   return (
@@ -24,6 +31,7 @@ function App() {
       />
       <button onClick={handleCalculate}>Calculate</button>
       {result !== null && <div className="result">Result: {result}</div>}
+      {error && <p className="error">{error}</p>}
     </>
   )
 }
