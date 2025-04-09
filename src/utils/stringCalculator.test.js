@@ -10,11 +10,11 @@ describe("String Calculator", () => {
   });
 
   test("ignores non-numeric input", () => {
-    expect(add("1,abc,3")).toBe(4);
+    expect(()=> add("1,abc,3")).toThrowError("Invalid character found");
   });
 
   test("handles trailing commas", () => {
-    expect(add("1,2,")).toBe(3);
+    expect(()=> add("1,2,")).toThrowError("Invalid character found");
   });
 
   test("adds multiple numbers", () => {
@@ -33,7 +33,7 @@ describe("String Calculator", () => {
   });
 
   test("ignores invalid entries and sums only valid numbers", () => {
-    expect(add("1,483rf\n23,")).toBe(507);
+   expect(() => add("1,483rf\n23,")).toThrowError("Invalid character found");
   });
 
   test("supports custom single-char delimiter like //;\n1;2", () => {
@@ -50,5 +50,10 @@ describe("String Calculator", () => {
   
   test("throw error with multiple negatives", () => {
     expect(() => add("-1,2,-3")).toThrowError("negative numbers not allowed -1,-3");
+  });
+
+  //1,2,a,4,b
+  test("throw error with multiple characters", () => {
+    expect(() => add("1,2,a,4,b")).toThrowError("Invalid character found");
   });
 });

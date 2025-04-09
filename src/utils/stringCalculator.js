@@ -16,6 +16,13 @@ export function add(numbers) {
 
   const parts = numberString.split(delimiter);
 
+ const characters =  parts.filter((charString) => {
+    return isNaN(parseInt(charString));
+  })
+  if (characters.length > 0) {
+    throw new Error(`Invalid character found`);
+  }
+  
   const parsedNumbers = parts
     .map((n) => parseInt(n, 10))
     .filter((n) => !isNaN(n));
